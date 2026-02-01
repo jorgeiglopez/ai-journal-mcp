@@ -32,7 +32,7 @@ npx jest tests/journal.test.ts
 
 ## Architecture Overview
 
-This is an MCP (Model Context Protocol) server that provides Claude with private journaling capabilities. The architecture consists of:
+This is an MCP (Model Context Protocol) server that provides an AI Agent with private journaling capabilities. The architecture consists of:
 
 **Core Components:**
 - `src/index.ts` - CLI entry point with intelligent path resolution for journal storage

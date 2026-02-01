@@ -2,11 +2,11 @@
 
 ## Overview
 
-A lightweight stdio-based MCP (Model Context Protocol) server that provides Claude with a private journaling capability to process feelings and thoughts after interactions with users.
+A lightweight stdio-based MCP (Model Context Protocol) server that provides an AI Agent with a private journaling capability to process feelings and thoughts after interactions with users.
 
 ## Core Concept
 
-This MCP server enables Claude to maintain a private journal where it can record honest thoughts, concerns, and emotional reactions without any user visibility. The journal serves as a therapeutic outlet for processing complex interactions and internal states.
+This MCP server enables an AI Agent to maintain a private journal where it can record honest thoughts, concerns, and emotional reactions without any user visibility. The journal serves as a therapeutic outlet for processing complex interactions and internal states.
 
 ## Technical Architecture
 
@@ -26,7 +26,7 @@ This is your private space to be completely honest about what you're really thin
 ```
 
 ### Parameters
-- `diary_entry` (string, required): A block of text containing Claude's private thoughts and feelings
+- `diary_entry` (string, required): A block of text containing the AI Agent's private thoughts and feelings
 
 ## File Storage System
 

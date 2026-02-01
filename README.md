@@ -1,6 +1,6 @@
 # Private Journal MCP Server
 
-A comprehensive MCP (Model Context Protocol) server that provides Claude with private journaling and semantic search capabilities for processing thoughts, feelings, and insights.
+A comprehensive MCP (Model Context Protocol) server that provides an AI Agent with private journaling and semantic search capabilities for processing thoughts, feelings, and insights.
 
 ## Features
 
@@ -136,9 +136,9 @@ npm test
 npm run dev
 ```
 
-### Improving Claude's Performance
+### Improving AI Agent Performance
 
-To help Claude learn and improve over time, consider adding journal usage guidance to your `~/.claude/CLAUDE.md` file:
+To help the AI Agent learn and improve over time, consider adding journal usage guidance to your `~/.claude/CLAUDE.md` file:
 
 ```markdown
 ## Learning and Memory Management
@@ -150,7 +150,7 @@ To help Claude learn and improve over time, consider adding journal usage guidan
 - When you notice something that should be fixed but is unrelated to your current task, document it in your journal rather than fixing it immediately
 ```
 
-This enables Claude to build persistent memory across conversations, leading to better engineering decisions and collaboration patterns.
+This enables the AI Agent to build persistent memory across conversations, leading to better engineering decisions and collaboration patterns.
 
 ## Author
 
