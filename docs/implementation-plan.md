@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Build a lightweight stdio-based MCP server in Node.js/TypeScript that provides Claude with a private journaling capability through the `process_feelings` tool.
+Build a lightweight stdio-based MCP server in Node.js/TypeScript that provides an AI Agent with a private journaling capability through the `process_feelings` tool.
 
 ## Phase 1: Project Setup & Foundation
 
