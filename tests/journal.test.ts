@@ -192,7 +192,7 @@ describe('JournalManager', () => {
 
     const today = new Date();
     const dateString = getFormattedDate(today);
-    const userDayDir = path.join(userTempDir, '.private-journal', dateString);
+    const userDayDir = path.join(userTempDir, '.ai-journal', dateString);
     
     const userFiles = await fs.readdir(userDayDir);
     expect(userFiles).toHaveLength(1);
@@ -232,7 +232,7 @@ describe('JournalManager', () => {
     expect(projectContent).not.toContain('## Feelings');
     
     // Check user directory
-    const userDayDir = path.join(userTempDir, '.private-journal', dateString);
+    const userDayDir = path.join(userTempDir, '.ai-journal', dateString);
     const userFiles = await fs.readdir(userDayDir);
     expect(userFiles).toHaveLength(1);
     
@@ -255,7 +255,7 @@ describe('JournalManager', () => {
     const dateString = getFormattedDate(today);
     
     // Should only create user directory, not project directory
-    const userDayDir = path.join(userTempDir, '.private-journal', dateString);
+    const userDayDir = path.join(userTempDir, '.ai-journal', dateString);
     const userFiles = await fs.readdir(userDayDir);
     expect(userFiles).toHaveLength(1);
     
@@ -288,7 +288,7 @@ describe('JournalManager', () => {
     expect(projectContent).toContain('This specific codebase pattern works well');
     
     // User directory should not exist
-    const userDayDir = path.join(userTempDir, '.private-journal', dateString);
+    const userDayDir = path.join(userTempDir, '.ai-journal', dateString);
     await expect(fs.access(userDayDir)).rejects.toThrow();
   });
 

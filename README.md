@@ -94,7 +94,7 @@ Browse recent entries chronologically:
 
 ### Project Journal (per project)
 ```
-.private-journal/
+.ai-journal/
 ├── 2025-05-31/
 │   ├── 14-30-45-123456.md          # Project notes entry
 │   ├── 14-30-45-123456.embedding   # Search index
@@ -103,7 +103,7 @@ Browse recent entries chronologically:
 
 ### User Journal (global)
 ```
-~/.private-journal/
+~/.ai-journal/
 ├── 2025-05-31/
 │   ├── 14-32-15-789012.md          # Personal thoughts entry
 │   ├── 14-32-15-789012.embedding   # Search index

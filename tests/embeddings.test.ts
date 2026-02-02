@@ -25,7 +25,7 @@ describe('Embedding and Search functionality', () => {
     process.env.HOME = userTempDir;
     
     journalManager = new JournalManager(projectTempDir);
-    searchService = new SearchService(projectTempDir, path.join(userTempDir, '.private-journal'));
+    searchService = new SearchService(projectTempDir, path.join(userTempDir, '.ai-journal'));
   });
 
   afterEach(async () => {
@@ -104,7 +104,7 @@ TypeScript interfaces are really powerful for maintaining code quality.`;
     const dateString = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
     
     // Check user directory for feelings and technical_insights
-    const userDayDir = path.join(userTempDir, '.private-journal', dateString);
+    const userDayDir = path.join(userTempDir, '.ai-journal', dateString);
     const userFiles = await fs.readdir(userDayDir);
     
     const userMdFile = userFiles.find(f => f.endsWith('.md'));
