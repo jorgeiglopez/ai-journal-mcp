@@ -5,11 +5,11 @@ import * as path from 'path';
 
 /**
  * Resolves the best available directory for journal storage
- * @param subdirectory - subdirectory name (e.g., '.private-journal')
+ * @param subdirectory - subdirectory name (e.g., '.ai-journal')
  * @param includeCurrentDirectory - whether to consider current working directory
  * @returns resolved path to journal directory
  */
-export function resolveJournalPath(subdirectory: string = '.private-journal', includeCurrentDirectory: boolean = true): string {
+export function resolveJournalPath(subdirectory: string = '.ai-journal', includeCurrentDirectory: boolean = true): string {
   const possiblePaths = [];
 
   // Try current working directory only if requested and it's reasonable
@@ -52,7 +52,7 @@ export function resolveJournalPath(subdirectory: string = '.private-journal', in
  * @returns path to user's private journal directory
  */
 export function resolveUserJournalPath(): string {
-  return resolveJournalPath('.private-journal', false);
+  return resolveJournalPath('.ai-journal', false);
 }
 
 /**
@@ -60,5 +60,5 @@ export function resolveUserJournalPath(): string {
  * @returns path to project's private journal directory
  */
 export function resolveProjectJournalPath(): string {
-  return resolveJournalPath('.private-journal', true);
+  return resolveJournalPath('.ai-journal', true);
 }

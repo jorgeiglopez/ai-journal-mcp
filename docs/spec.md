@@ -42,7 +42,7 @@ This is your private space to be completely honest about what you're really thin
 ```
 
 ### Default Location
-- Default: `{current-working-directory}/.private-journal`
+- Default: `{current-working-directory}/.ai-journal`
 - Override: `--journal-path` command line argument
 
 ### Filename Format
@@ -67,7 +67,7 @@ I'm feeling uncertain about that last response. The user asked about optimizatio
 ## Error Handling
 
 ### Directory Creation
-- Auto-create `.private-journal` directory if it doesn't exist
+- Auto-create `.ai-journal` directory if it doesn't exist
 - Auto-create daily subdirectories as needed
 
 ### Filesystem Permissions
@@ -90,7 +90,7 @@ node private-journal-mcp-server.js [--journal-path <path>]
 
 ### Examples
 ```bash
-# Use default location (cwd/.private-journal)
+# Use default location (cwd/.ai-journal)
 node private-journal-mcp-server.js
 
 # Use custom location

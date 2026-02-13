@@ -20,8 +20,8 @@ describe('Path resolution utilities', () => {
     const mockCwd = '/Users/test/projects/my-app';
     jest.spyOn(process, 'cwd').mockReturnValue(mockCwd);
     
-    const result = resolveJournalPath('.private-journal', true);
-    expect(result).toBe(path.join(mockCwd, '.private-journal'));
+    const result = resolveJournalPath('.ai-journal', true);
+    expect(result).toBe(path.join(mockCwd, '.ai-journal'));
   });
 
   test('resolveJournalPath skips system directories', () => {
@@ -31,8 +31,8 @@ describe('Path resolution utilities', () => {
       jest.spyOn(process, 'cwd').mockReturnValue(systemPath);
       process.env.HOME = '/Users/test';
       
-      const result = resolveJournalPath('.private-journal', true);
-      expect(result).toBe('/Users/test/.private-journal');
+      const result = resolveJournalPath('.ai-journal', true);
+      expect(result).toBe('/Users/test/.ai-journal');
     });
   });
 
@@ -40,16 +40,16 @@ describe('Path resolution utilities', () => {
     process.env.HOME = '/Users/test';
     delete process.env.USERPROFILE;
     
-    const result = resolveJournalPath('.private-journal', false);
-    expect(result).toBe('/Users/test/.private-journal');
+    const result = resolveJournalPath('.ai-journal', false);
+    expect(result).toBe('/Users/test/.ai-journal');
   });
 
   test('resolveJournalPath uses USERPROFILE on Windows', () => {
     delete process.env.HOME;
     process.env.USERPROFILE = 'C:\\Users\\test';
     
-    const result = resolveJournalPath('.private-journal', false);
-    expect(result).toBe(path.join('C:\\Users\\test', '.private-journal'));
+    const result = resolveJournalPath('.ai-journal', false);
+    expect(result).toBe(path.join('C:\\Users\\test', '.ai-journal'));
   });
 
   test('resolveJournalPath falls back to temp directory', () => {
@@ -58,8 +58,8 @@ describe('Path resolution utilities', () => {
     delete process.env.TEMP;
     delete process.env.TMP;
     
-    const result = resolveJournalPath('.private-journal', false);
-    expect(result).toBe('/tmp/.private-journal');
+    const result = resolveJournalPath('.ai-journal', false);
+    expect(result).toBe('/tmp/.ai-journal');
   });
 
   test('resolveUserJournalPath excludes current directory', () => {
@@ -68,7 +68,7 @@ describe('Path resolution utilities', () => {
     process.env.HOME = '/Users/test';
     
     const result = resolveUserJournalPath();
-    expect(result).toBe('/Users/test/.private-journal');
+    expect(result).toBe('/Users/test/.ai-journal');
     expect(result).not.toContain('projects/my-app');
   });
 
@@ -77,7 +77,7 @@ describe('Path resolution utilities', () => {
     jest.spyOn(process, 'cwd').mockReturnValue(mockCwd);
     
     const result = resolveProjectJournalPath();
-    expect(result).toBe(path.join(mockCwd, '.private-journal'));
+    expect(result).toBe(path.join(mockCwd, '.ai-journal'));
   });
 
   test('both user and project paths are consistent when no project context', () => {
@@ -88,7 +88,7 @@ describe('Path resolution utilities', () => {
     const userPath = resolveUserJournalPath();
     const projectPath = resolveProjectJournalPath();
     
-    expect(userPath).toBe('/Users/test/.private-journal');
-    expect(projectPath).toBe('/Users/test/.private-journal');
+    expect(userPath).toBe('/Users/test/.ai-journal');
+    expect(projectPath).toBe('/Users/test/.ai-journal');
   });
 });

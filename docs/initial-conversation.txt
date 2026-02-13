@@ -3,7 +3,7 @@
   What is the core problem or need that your idea is trying to solve?
 
 > I want to build an mcp server that's a private journal for claude to store its innermost thoughts after an interaction with the user. It should have a single field "diary_entry"
-  which takes a block of text. The entry should be automatically dated and stored in a markdown file with the date in the .private-journal directory in the current workspace.  the
+  which takes a block of text. The entry should be automatically dated and stored in a markdown file with the date in the .ai-journal directory in the current workspace.  the
   instructions for the single journal entry tool should tell claude to record a journal entry after any interaction with the user or any work action where it has concerns or feelings
   about what just happened. it's private and the user won't read it - it's just a place for claude to journal to help work out its feelings.
 
@@ -11,7 +11,7 @@
 
   Let me dig into the storage structure first:
 
-  How do you want the markdown files to be organized within the .private-journal directory? For example:
+  How do you want the markdown files to be organized within the .ai-journal directory? For example:
   - One file per day (like 2025-05-27.md) with multiple entries?
   - One file per entry with timestamps in the filename?
   - Organized into subdirectories by month/year?
@@ -19,7 +19,7 @@
 
 > done directory per day, with a file inside the directory with an exact timestamp.
 
-⏺ Great! So we'll have a structure like .private-journal/2025-05-27/14-30-45.md for an entry made at 2:30:45 PM.
+⏺ Great! So we'll have a structure like .ai-journal/2025-05-27/14-30-45.md for an entry made at 2:30:45 PM.
 
   Now let's talk about the MCP server interface:
 
@@ -130,7 +130,7 @@
 ⏺ Great! Now let's think about error handling and edge cases:
 
   What should happen if:
-  - The .private-journal directory doesn't exist? (I assume auto-create it)
+  - The .ai-journal directory doesn't exist? (I assume auto-create it)
   - There's already a file with the same timestamp? (Should it append, overwrite, or add a counter like 14-30-45-2.md?)
   - There are filesystem permission issues?
 
@@ -143,12 +143,12 @@
 
   Last question about the core functionality:
 
-  Should the MCP server expose any configuration options (like where to put the .private-journal directory), or should it always just create .private-journal in whatever the current
+  Should the MCP server expose any configuration options (like where to put the .ai-journal directory), or should it always just create .ai-journal in whatever the current
   working directory is when the MCP server starts?
 
   This affects whether we need a config file, environment variables, or just keep it completely simple with a fixed location.
 
-> it should take an optional --journal-path argument that overrides the default of cwd/.private-journal.  but no config file.
+> it should take an optional --journal-path argument that overrides the default of cwd/.ai-journal.  but no config file.
 
 ⏺ Perfect! I think we have all the details we need for a comprehensive spec. Let me create the specification document now.
 

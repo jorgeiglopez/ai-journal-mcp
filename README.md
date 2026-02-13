@@ -23,30 +23,43 @@ A comprehensive MCP (Model Context Protocol) server that provides an AI Agent wi
 
 ## Installation
 
-This server is run directly from GitHub using `npx` - no installation required.
+```bash
+# Clone and install
+git clone <your-repo-url>
+cd ai-journal-mcp
+npm install
+npm run build
+```
 
 ## MCP Configuration
 
-#### Claude Code (One-liner)
-```bash
-claude mcp add-json private-journal '{"type":"stdio","command":"npx","args":["github:obra/private-journal-mcp"]}' -s user
-```
-
-#### Manual Configuration
-Add to your MCP settings (e.g., Claude Desktop configuration):
+Add to your MCP settings configuration:
 
 ```json
 {
   "mcpServers": {
     "private-journal": {
-      "command": "npx",
-      "args": ["github:obra/private-journal-mcp"]
+      "command": "node",
+      "args": ["/absolute/path/to/ai-journal-mcp/dist/index.js"]
     }
   }
 }
 ```
 
-The server will automatically find a suitable location for the journal files.
+Optionally specify a custom journal path:
+
+```json
+{
+  "mcpServers": {
+    "private-journal": {
+      "command": "node",
+      "args": ["/absolute/path/to/ai-journal-mcp/dist/index.js", "--journal-path", "/custom/journal/path"]
+    }
+  }
+}
+```
+
+The server will automatically find a suitable location for the journal files if no path is specified.
 
 ## MCP Tools
 
@@ -81,7 +94,7 @@ Browse recent entries chronologically:
 
 ### Project Journal (per project)
 ```
-.private-journal/
+.ai-journal/
 ├── 2025-05-31/
 │   ├── 14-30-45-123456.md          # Project notes entry
 │   ├── 14-30-45-123456.embedding   # Search index
@@ -90,7 +103,7 @@ Browse recent entries chronologically:
 
 ### User Journal (global)
 ```
-~/.private-journal/
+~/.ai-journal/
 ├── 2025-05-31/
 │   ├── 14-32-15-789012.md          # Personal thoughts entry
 │   ├── 14-32-15-789012.embedding   # Search index
@@ -138,12 +151,12 @@ npm run dev
 
 ### Improving AI Agent Performance
 
-To help the AI Agent learn and improve over time, consider adding journal usage guidance to your `~/.claude/CLAUDE.md` file:
+To help the AI Agent learn and improve over time, consider adding journal usage guidance to your agent's configuration or prompt:
 
 ```markdown
 ## Learning and Memory Management
 
-- YOU MUST use the journal tool frequently to capture technical insights, failed approaches, and user preferences
+- Use the journal tool frequently to capture technical insights, failed approaches, and user preferences
 - Before starting complex tasks, search the journal for relevant past experiences and lessons learned
 - Document architectural decisions and their outcomes for future reference
 - Track patterns in user feedback to improve collaboration over time
