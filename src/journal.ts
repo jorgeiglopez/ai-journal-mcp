@@ -74,12 +74,14 @@ export class JournalManager {
   }
 
   private formatTimestamp(date: Date): string {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
     const ms = String(date.getMilliseconds()).padStart(3, '0');
-    const rand = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
-    return `${hours}h${minutes}m${seconds}s-${ms}${rand}`;
+    return `${year}-${month}-${day}_${hours}-${minutes}-${seconds}-${ms}`;
   }
 
   private formatEntry(content: string, timestamp: Date): string {
@@ -260,17 +262,11 @@ ${sections.join('\n\n')}
 
   private extractTimestampFromPath(filePath: string): Date | null {
     const filename = path.basename(filePath, '.md');
-    const match = filename.match(/^(\d{2})h(\d{2})m(\d{2})s-\d{6}$/);
+    const match = filename.match(/^(\d{4})-(\d{2})-(\d{2})_(\d{2})-(\d{2})-(\d{2})-\d{3}$/);
     
     if (!match) return null;
     
-    const [, hours, minutes, seconds] = match;
-    const dirName = path.basename(path.dirname(filePath));
-    const dateMatch = dirName.match(/^(\d{4})-(\d{2})-(\d{2})$/);
-    
-    if (!dateMatch) return null;
-    
-    const [, year, month, day] = dateMatch;
+    const [, year, month, day, hours, minutes, seconds] = match;
     return new Date(parseInt(year), parseInt(month) - 1, parseInt(day), 
                    parseInt(hours), parseInt(minutes), parseInt(seconds));
   }

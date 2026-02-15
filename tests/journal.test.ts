@@ -84,7 +84,7 @@ describe('JournalManager', () => {
       const mdFiles = await readMdFiles(dayDir);
 
       expect(mdFiles).toHaveLength(1);
-      expect(mdFiles[0]).toMatch(/^\d{2}h\d{2}m\d{2}s-\d{6}\.md$/);
+      expect(mdFiles[0]).toMatch(/^\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}\.md$/);
     });
 
     test('multiple entries on the same day produce distinct files', async () => {
