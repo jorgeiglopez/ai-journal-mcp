@@ -77,8 +77,9 @@ export class JournalManager {
     const hours = String(date.getHours()).padStart(2, '0');
     const minutes = String(date.getMinutes()).padStart(2, '0');
     const seconds = String(date.getSeconds()).padStart(2, '0');
-    const uniqueSuffix = String(date.getMilliseconds() * 1000 + Math.floor(Math.random() * 1000)).padStart(6, '0');
-    return `${hours}-${minutes}-${seconds}-${uniqueSuffix}`;
+    const ms = String(date.getMilliseconds()).padStart(3, '0');
+    const rand = String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+    return `${hours}h${minutes}m${seconds}s-${ms}${rand}`;
   }
 
   private formatEntry(content: string, timestamp: Date): string {
@@ -259,7 +260,7 @@ ${sections.join('\n\n')}
 
   private extractTimestampFromPath(filePath: string): Date | null {
     const filename = path.basename(filePath, '.md');
-    const match = filename.match(/^(\d{2})-(\d{2})-(\d{2})-\d{6}$/);
+    const match = filename.match(/^(\d{2})h(\d{2})m(\d{2})s-\d{6}$/);
     
     if (!match) return null;
     
