@@ -9,7 +9,7 @@ For full details on the original design, motivation, and architecture, see [Jess
 ## What's Different
 
 - **Agent-agnostic** — works with any MCP-compatible agent
-- **Adapted journal guidelines** — tweaked for a two-practice model (thinking + learning) that can be embedded into any agent's system prompt
+- **Adapted journal guidelines** — streamlined into three habits (think out loud, search before starting, save learnings) that can be embedded into any agent's system prompt
 
 ## Setup
 
