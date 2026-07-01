@@ -4,12 +4,18 @@ A personal fork of [Jesse Vincent's ai-journal-mcp](https://github.com/obra/ai-j
 
 This version adapts the original project to work with any AI agent that supports MCP — not just Claude Code. The core idea remains the same: give your AI agent a private journal for thinking and learning across conversations.
 
-For full details on the original design, motivation, and architecture, see [Jesse's project](https://github.com/obra/ai-journal-mcp).
+### My adaptation and back story:
 
-## What's Different
+A walkthrough of the design and how agents use it: [Testing the Speak-Your-Mind MCP](https://jorgeiglopez.com/blog/the-speak-your-mind-mcp/).
+
+Built by [Jorge I. Lopez](https://jorgeiglopez.com).
+
+### What's Different
 
 - **Agent-agnostic** — works with any MCP-compatible agent
 - **Adapted journal guidelines** — streamlined into three habits (think out loud, search before starting, save learnings) that can be embedded into any agent's system prompt
+
+---
 
 ## Setup
 
